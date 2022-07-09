@@ -1,1 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+:root {
+  font-family: 'Ubuntu', 'Helvetica', sans-serif;
+  --bg-color: #BE123C;
+  --bg-color-darker: #9F1239;
+  --bg-color-brighter: #E11D48;
+  --bg-light: #F4F4F5;
+  --bg-dark: #27272A;
+  --text-color-light: #171717;
+  --text-color-dark: #E5E5E5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-color-dark);
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  --text-color: var(--text-color-dark);
+  text-align: center;
+}
+
+footer a {
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: .1rem;
+  left: 0;
+  border-bottom: 1px solid var(--text-color);
+  width: 100%;
+  transition: width .2s ease-in-out;
+  pointer-events: none;
+}
+
+footer a:hover::after {
+  width: 0;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.sidebar {
+  grid-area: 1 / 1 / span 3 / span 1;
+  background-color: var(--bg-color);
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 2rem;
+}
+
+.sidebar .content {
+  display: grid;
+  align-content: start;
+  gap: 2rem;
+}
+
+.sidebar .title {
+  font-size: 2.4rem;
+}
+
+.sidebar div {
+  font-size: 1.6rem;
+}
+
+.sidebar .content a {
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  transition: background-color .5s;
+  padding: .4rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.sidebar .content a:hover {
+  background-color: var(--bg-color-darker);
+}
+
+.sidebar i {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  grid-area: 1 / 2 / span 1 / span 2;
+  background-color: blue;
+}
+
+.projects {
+  grid-area: 2 / 2 / span 2 / span 1;
+  background-color: purple;
+}
+
+.announcements {
+  grid-area: 2 / 3 / span 1 / span 1;
+  background-color: red;
+}
+
+.trending {
+  grid-area: 3 / 3 / span 1 / span 1;
+  background-color: green;
+}
 
