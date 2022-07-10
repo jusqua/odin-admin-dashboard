@@ -2,19 +2,25 @@
 :root {
   font-family: 'Ubuntu', 'Helvetica', sans-serif;
   --bg-color: #BE123C;
-  --bg-color-darker: #9F1239;
-  --bg-color-brighter: #E11D48;
-  --bg-light: #F4F4F5;
-  --bg-dark: #27272A;
-  --text-color-light: #171717;
-  --text-color-dark: #E5E5E5;
+  --bg-color-dark: #9F1239;
+  --bg-color-bright: #E11D48;
+  --bg-color-light: #FECDD3;
+  --bg-light: #FFF1F2;
+  --bg-dark: #FFE4E6;
+  --text-light: #18181B;
+  --text-light-secondary: #71717A;
+  --text-dark: #E4E4E7;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: var(--text-color-dark);
+}
+
+*:focus {
+  border-radius: 4px;
+  outline: 1px solid var(--bg-color-bright);
 }
 
 button {
@@ -31,7 +37,7 @@ a {
 }
 
 footer {
-  --text-color: var(--text-color-dark);
+  --text: var(--text-dark);
   text-align: center;
 }
 
@@ -44,7 +50,7 @@ footer a::after {
   position: absolute;
   bottom: .1rem;
   left: 0;
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text);
   width: 100%;
   transition: width .2s ease-in-out;
   pointer-events: none;
@@ -52,6 +58,38 @@ footer a::after {
 
 footer a:hover::after {
   width: 0;
+}
+
+*[class^="ph-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  --size: 1rem;
+  height: var(--size);
+  width: var(--size);
+  font-size: var(--size);
+}
+
+
+.avatar {
+  --size: 4rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var(--bg-color-bright);
+  color: var(--text-dark);
+}
+
+.avatar img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
 }
 
 .container {
@@ -69,6 +107,10 @@ footer a:hover::after {
   grid-template-rows: 1fr 2rem;
 }
 
+.sidebar * {
+  color: var(--text-dark);
+}
+
 .sidebar .content {
   display: grid;
   align-content: start;
@@ -76,11 +118,17 @@ footer a:hover::after {
 }
 
 .sidebar .title {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
-.sidebar div {
-  font-size: 1.6rem;
+.sidebar > div {
+  font-size: 1.4rem;
+}
+
+.sidebar .content > div {
+  display: flex;
+  gap: .2rem;
+  flex-direction: column;
 }
 
 .sidebar .content a {
@@ -92,23 +140,147 @@ footer a:hover::after {
   gap: 0.5rem;
   align-items: center;
   justify-content: start;
+  outline: none;
 }
 
-.sidebar .content a:hover {
-  background-color: var(--bg-color-darker);
+.sidebar .content a:hover,
+.sidebar .content a:focus {
+  background-color: var(--bg-color-bright);
 }
 
 .sidebar i {
-  width: 2rem;
+  --size: 2rem;
+}
+
+.block {
   height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 2rem;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr;
+  gap: 2px;
+}
+
+.block * {
+  background-color: var(--text-dark);
+  border-radius: 1px;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  --displacement: -.1rem;
+  transition: all .2s;
+}
+
+.block .one {
+  grid-area: 1 / 1 / span 2 / span 1;
+}
+
+.title:hover .one {
+  top: var(--displacement);
+  left: var(--displacement);
+}
+
+.title .two {
+  grid-area: 3 / 1 / span 1 / span 1;
+}
+
+.title:hover .two {
+  left: var(--displacement);
+}
+
+.block .three {
+  grid-area: 1 / 2 / span 1 / span 1;
+}
+
+.title:hover .three {
+  top: var(--displacement);
+}
+
+.block .four {
+  grid-area: 2 / 2 / span 2 / span 1;
 }
 
 .header {
   grid-area: 1 / 2 / span 1 / span 2;
-  background-color: blue;
+  background-color: var(--bg-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem;
+  color: var(--text-light);
+}
+
+.header .greetings {
+  display: grid;
+}
+
+.header .avatar {
+  --size: 3rem;
+  grid-row: 1 / span 2;
+  outline: 2px solid var(--bg-color-light);
+  margin-right: .5rem;
+}
+
+.header .greeter {
+  grid-area: 1 / 2 / span 1 / span 1;
+  color: var(--text-light-secondary);
+  font-size: 0.8rem;
+}
+
+.header .user {
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.user span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.user a {
+  text-decoration: none;
+  color: var(--text-light);
+  background-color: var(--bg-color-light);
+  border-radius: 4px;
+  padding: .2rem;
+  position: relative;
+}
+
+.user a::before {
+  content: '@';
+}
+
+.header .actions {
+  grid-column-start: 2;
+  display: flex;
+  align-items: end;
+  gap: .5rem;
+}
+
+.actions button {
+  padding: 1rem;
+  background-color: var(--bg-color-light);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: .5s width;
+  gap: .5rem;
+}
+
+.actions button span,
+.actions button span {
+  display: none;
+}
+
+.actions button:hover span,
+.actions button:focus span {
+  display: inline;
+}
+
+.actions button:hover,
+.actions button:focus {
+  width: 8rem;
 }
 
 .projects {
