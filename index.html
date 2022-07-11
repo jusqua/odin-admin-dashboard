@@ -7,171 +7,54 @@
     <script src="https://unpkg.com/phosphor-icons" defer></script>
     <title>Admin Dashboard</title>
   </head>
+
   <body>
     <div class="container">
-      <header class="header">
-        <div class="greetings">
-          <a href="#" class="avatar"><img src="https://gitlab.com/uploads/-/system/user/avatar/11640102/avatar.png" alt="avatar"></a>
-          <p class="greeter">Welcome back,</p>
-          <p class="user">
-            <span>Ádrian Gama</span>
-            <a href="#">jusqua</a>
-          </p>
-        </div>
-        <div class="actions">
-          <button class="ph-bell-simple-ringing"><span>Notifications</span></button>
-          <button class="ph-list-plus"><span>New</span></button>
-          <button class="ph-export"><span>Upload</span></button>
-          <button class="ph-share-network"><span>Share</span></button>
-          <button class="ph-magnifying-glass"><span>Search</span></button>
-        </div>
-      </header>
-
-      <div class="sidebar">
-        <div class="content">
-          <div class="title">
-            <a href="#">
-              <i class="block">
-                <i class="one"></i>
-                <i class="two"></i>
-                <i class="three"></i>
-                <i class="four"></i>
-              </i>
-              <span>Dashboard</span>
+      <section class="sidebar">
+        <div class="split">
+          <div class="user partition">
+            <a href="#" class="user-avatar">
+              <img src="https://gitlab.com/uploads/-/system/user/avatar/11640102/avatar.png" alt="avatar" class="avatar">
+              <span class="pop-up">Ádrian Gama</span>
             </a>
           </div>
 
-          <div class="user-paths">
-            <a href="#">
-              <i class="ph-house-fill"></i>
-              <span>Home</span>
-            </a>
-            <a href="#">
-              <i class="ph-user-rectangle-fill"></i>
-              <span>Profile</span>
-            </a>
-            <a href="#">
-              <i class="ph-chats-fill"></i>
-              <span>Messages</span>
-            </a>
-            <a href="#">
-              <i class="ph-clock-counter-clockwise-fill"></i>
-              <span>History</span>
-            </a>
-            <a href="#">
-              <i class="ph-check-square-offset-fill"></i>
-              <span>Tasks</span>
-            </a>
-            <a href="#">
-              <i class="ph-users-three-fill"></i>
-              <span>Communities</span>
-            </a>
+          <div class="actions partition">
+            <a href="#" class="ph-folder-plus new-action"><span class="pop-up">New Project</span></a>
+            <a href="#" class="ph-upload-simple upload-action"><span class="pop-up">Upload Project</span></a>
+            <a href="#" class="ph-share-network share-action"><span class="pop-up">Share Project</span></a>
           </div>
 
-          <div class="account-paths">
-            <a href="#">
-              <i class="ph-gear-fill"></i>
-              <span>Settings</span>
-            </a>
-            <a href="#">
-              <i class="ph-question-fill"></i>
-              <span>Support</span>
-            </a>
-            <a href="#">
-              <i class="ph-shield-check-fill"></i>
-              <span>Privacy</span>
-            </a>
+          <div class="pages partition">
+            <a href="#" class="ph-chats message-page"><span class="pop-up">Messages</span></a>
+            <a href="#" class="ph-clock-counter-clockwise history-page"><span class="pop-up">History</span></a>
+            <a href="#" class="ph-users-three communities-page"><span class="pop-up">Communities</span></a>
+            <a href="#" class="ph-check-square-offset tasks-page"><span class="pop-up">Tasks</span></a>
           </div>
         </div>
 
-        <footer class="footer">This is a <a href="https://gitlab.com/potential-garbage">Potential Garbage</a> made by <a href="https://www.gitlab.com/jusqua">jusqua</a> for <a href="https://www.theodinproject.com">The Odin Project</a></footer>
-      </div>
+        <div class="split">
+          <div class="others partition">
+            <a href="#" class="ph-cookie privacy-other"><span class="pop-up">Privacy</span></a>
+            <a href="#" class="ph-question support-other"><span class="pop-up">Support</span></a>
+            <a href="#" class="ph-gear settings-other"><span class="pop-up">Settings</span></a>
+          </div>
+          <i class="logo">
+            <i class="one"></i>
+            <i class="two"></i>
+            <i class="three"></i>
+            <i class="four"></i>
+          </i>
+        </div>
+      </section>
 
-      <div class="projects">
-        <h2>Projects</h2>
-        <div class="project-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-          <button class="ph-star"></button>
-          <button class="ph-eye"></button>
-          <button class="ph-git-fork"></button>
-        </div>
-        <div class="project-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-          <button class="ph-star"></button>
-          <button class="ph-eye"></button>
-          <button class="ph-git-fork"></button>
-        </div>
-        <div class="project-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-          <button class="ph-star"></button>
-          <button class="ph-eye"></button>
-          <button class="ph-git-fork"></button>
-        </div>
-        <div class="project-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-          <button class="ph-star"></button>
-          <button class="ph-eye"></button>
-          <button class="ph-git-fork"></button>
-        </div>
-        <div class="project-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-          <button class="ph-star"></button>
-          <button class="ph-eye"></button>
-          <button class="ph-git-fork"></button>
-        </div>
-        <div class="project-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-          <button class="ph-star"></button>
-          <button class="ph-eye"></button>
-          <button class="ph-git-fork"></button>
-        </div>
-      </div>
+      <section class="projects"></section>
 
-      <div class="announcements">
-        <h2>Announcements</h2>
-        <div class="announcement-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-        </div>
-        <div class="announcement-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-        </div>
-        <div class="announcement-preview">
-          <h3>Title</h3>
-          <p>Lorem Ipsum dolor sit amet</p>
-        </div>
-      </div>
+      <section class="announcements"></section>
 
-      <div class="trending">
-        <h2>Trending</h2>
-        <div class="trending-preview">
-          <img src="#" alt="trending-avatar" class="avatar">
-          <h3 class="username">User Name</h3>
-          <h4 class="project-name">Project Name</h4>
-        </div>
-        <div class="trending-preview">
-          <img src="#" alt="trending-avatar" class="avatar">
-          <h3 class="username">User Name</h3>
-          <h4 class="project-name">Project Name</h4>
-        </div>
-        <div class="trending-preview">
-          <img src="#" alt="trending-avatar" class="avatar">
-          <h3 class="username">User Name</h3>
-          <h4 class="project-name">Project Name</h4>
-        </div>
-        <div class="trending-preview">
-          <img src="#" alt="trending-avatar" class="avatar">
-          <h3 class="username">User Name</h3>
-          <h4 class="project-name">Project Name</h4>
-        </div>
-      </div>
+      <section class="trending"></section>
+
+      <footer>This is a <a href="https://gitlab.com/potential-garbage">Potential Garbage</a> made by <a href="https://www.gitlab.com/jusqua">jusqua</a> for <a href="https://www.theodinproject.com">The Odin Project</a></footer>
     </div>
   </body>
 </html>
