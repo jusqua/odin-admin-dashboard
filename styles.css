@@ -4,6 +4,7 @@
   --color-primary: #FBBF24;
   --color-secondary: #F59E0B;
   --color-neutral-light: #FAFAF9;
+  --color-neutral-middle: #D4D4D4;
   --color-neutral-dark: #1C1917;
   --text-color-light: #1C1917;
   --text-color-dark: #FAFAF9;
@@ -81,7 +82,7 @@ footer a:focus::after {
   top: var(--top);
   right: var(--right);
   bottom: var(--bottom);
-  background-color: var(--color-primary);
+  background-color: var(--bg-color);
   border-radius: var(--border-radius);
   height: calc(var(--font-size) + .5rem);
   align-items: center;
@@ -127,10 +128,12 @@ footer a:focus::after {
 .sidebar .partition a {
   --border-radius: 4px;
   --left: var(--sidebar-width);
+  --bg-color: var(--color-primary);
   width: var(--size);
   height: var(--size);
   border-radius: var(--border-radius);
   color: var(--text-color);
+  background-color: var(--bg-color);
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -145,7 +148,7 @@ footer a:focus::after {
 
 .sidebar .partition a:focus,
 .sidebar .partition a:hover {
-  background-color: var(--color-secondary);
+  --bg-color: var(--color-secondary);
 }
 
 .sidebar .partition a:hover .pop-up,
@@ -153,7 +156,7 @@ footer a:focus::after {
   display: flex;
 }
 
-.sidebar .avatar {
+.avatar {
   height: var(--size);
   width: var(--size);
   border-radius: var(--border-radius);
@@ -217,8 +220,9 @@ footer a:focus::after {
 
 .title {
   --bg-color: none;
-  --text-color: none;
-  padding: .5rem 1rem;
+  --text-color: var(--text-color-dark);
+  padding: 1rem;
+  margin: 0;
   position: sticky;
   top: 0;
   color: var(--text-color);
@@ -292,7 +296,7 @@ footer a:focus::after {
 
 .project-description {
   --line-height: 1.2rem;
-  overflow: hidden;
+  overflow: clip;
   word-wrap: break-word;
   line-height: var(--line-height);
   height: calc(4 * var(--line-height));
@@ -309,9 +313,11 @@ footer a:focus::after {
 .project-template .actions a {
   --size: 2rem;
   --border-radius: 4px;
+  --bg-color: var(--color-neutral-light);
   border-radius: var(--border-radius);
   height: var(--size);
   width: var(--size);
+  background-color: var(--bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -321,7 +327,7 @@ footer a:focus::after {
 
 .projects .actions a:hover,
 .projects .actions a:focus {
-  background-color: var(--color-primary);
+  --bg-color: var(--color-primary);
 }
 
 .projects .actions .pop-up {
@@ -339,26 +345,98 @@ footer a:focus::after {
 
 .announcements,
 .trending {
-  --bg-color: var(--color-neutral-light);
-  --text-color: var(--text-color-light);
   display: grid;
   grid-template-rows: 4rem 1fr;
-  overflow-y: auto;
-  margin: 1rem;
-  padding: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.announcements .templates,
+.trending .templates {
+  --text-color: var(--text-color-light);
+  --bg-color: var(--color-neutral-light);
   background-color: var(--bg-color);
   color: var(--text-color);
   border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 1rem;
+  padding: 1rem;
+  gap: 2rem;
+  overflow: auto;
 }
 
-.announcements .templates {
+.announcements .templates *,
+.trending .templates * {
+  margin: 0;
+}
 
+.announcement-template {
+  --bg-color: var(--color-neutral-light);
+  position: relative;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.announcement-template::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  border-bottom: 1px solid var(--color-neutral-middle);
+  width: 100%;
+}
+
+.announcement-template:last-child::after {
+  border-color: var(--color-neutral-light);
+}
+
+.announcements .announcement-description {
+  --line-height: 1.2rem;
+  overflow: clip;
+  line-height: var(--line-height);
+  height: calc(3 * var(--line-height));
+  text-align: justify;
+}
+
+.trending-template {
+  --border-radius: 8px;
+  --size: 4rem;
+  height: 4rem;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: var(--size) 1fr;
+  gap: 1rem;
+}
+
+.trending-avatar {
+  grid-area: 1 / 1 / span 2 / span 1;
 
 }
 
-.announcements .annoucement-template {
-}
-
-.trending {
+.trending-title {
+  grid-area: 1 / 2 / span 1 / span 1;
 
 }
+
+.trending-description {
+  grid-area: 2 / 2 / span 1 / span 1;
+
+}
+
+.trending-template:focus,
+.trending-template:hover {
+  --bg-color: var(--color-neutral-middle);
+  border-radius: var(--border-radius);
+  outline: none;
+}
+
+.trending-template .avatar {
+  border: 2px solid var(--color-primary);
+}
+
+
