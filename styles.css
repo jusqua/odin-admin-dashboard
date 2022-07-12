@@ -21,7 +21,7 @@ a {
 }
 
 footer {
-  grid-area: 2 / 2 / span 1 / span 2;
+  grid-area: 3 / 2 / span 1 / span 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,8 +58,14 @@ footer a:focus::after {
 .container {
   --sidebar-width: 3rem;
   display: grid;
-  grid-template: 1fr 2rem / var(--sidebar-width) 3fr 1fr;
+  grid-template: 1fr 1fr 2rem / var(--sidebar-width) 3fr 1fr;
   height: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    grid-template: 1fr 1fr 2rem / var(--sidebar-width) 3fr 2fr;
+  }
 }
 
 .container *:focus {
@@ -92,7 +98,7 @@ footer a:focus::after {
   color: var(--text-color);
   background-color: var(--color-primary);
   padding: var(--padding);
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -210,26 +216,31 @@ footer a:focus::after {
 }
 
 .title {
+  --bg-color: none;
+  --text-color: none;
   padding: .5rem 1rem;
-  margin: auto 0;
   position: sticky;
   top: 0;
-  background-color: var(--color-neutral-dark);
+  color: var(--text-color);
+  background-color: var(--bg-color);
   z-index: 1;
+  display: flex;
+  align-items: center;
 }
 
 .title::before {
-  content: '⦙ ';
+  padding-right: .5rem;
 }
 
 .projects {
-  grid-area: 1 / 2 / span 1 / span 1;
+  --bg-color: var(--color-neutral-dark);
+  --text-color: var(--text-color-dark);
+  grid-area: 1 / 2 / span 2 / span 1;
   display: grid;
   grid-template-rows: 4rem 1fr;
-  overflow: scroll;
-  color: var(--text-color-dark);
+  overflow-y: auto;
+  color: var(--text-color);
 }
-
 
 .projects .templates {
   --template-height: 12rem;
@@ -326,4 +337,28 @@ footer a:focus::after {
   display: flex;
 }
 
+.announcements,
+.trending {
+  --bg-color: var(--color-neutral-light);
+  --text-color: var(--text-color-light);
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  overflow-y: auto;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 8px;
+}
 
+.announcements .templates {
+
+
+}
+
+.announcements .annoucement-template {
+}
+
+.trending {
+
+}
