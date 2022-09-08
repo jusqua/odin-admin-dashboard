@@ -1,5 +1,5 @@
-const theme = document.querySelector('.theme-other');
-theme.addEventListener('click', e => {
+document.querySelector('.theme-other').addEventListener('click', e => {
+  theme = e.target;
   if (theme.classList.contains('ph-moon-fill')) {
     theme.classList.remove('ph-moon-fill');
     theme.classList.add('ph-sun-fill');

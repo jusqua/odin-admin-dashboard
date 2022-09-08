@@ -104,29 +104,13 @@ footer a:focus::after {
   background-color: var(--surface0);
   padding: var(--padding);
   grid-row: 1 / span 3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--size));
   gap: .5rem;
+  align-content: start;
 }
 
-.sidebar .split {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.sidebar .partition {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.sidebar .partition a {
+.sidebar a {
   --border-radius: 4px;
   --left: var(--sidebar-width);
   width: var(--size);
@@ -141,14 +125,14 @@ footer a:focus::after {
   transition: .1s color ease-in-out, .1s background-color ease-in-out;
 }
 
-.sidebar .partition a:focus,
-.sidebar .partition a:hover {
+.sidebar a:focus,
+.sidebar a:hover {
   background-color: var(--primary);
   color: var(--surface0);
 }
 
-.sidebar .partition a:hover .pop-up,
-.sidebar .partition a:focus .pop-up {
+.sidebar a:hover .pop-up,
+.sidebar a:focus .pop-up {
   display: flex;
 }
 
@@ -347,8 +331,11 @@ footer a:focus::after {
   grid-template-columns: 1fr;
   margin: 1rem;
   padding: 1rem;
+  overflow-y: auto;
+}
+
+.announcements .templates {
   gap: 2rem;
-  overflow: auto;
 }
 
 .announcements .templates *,
@@ -379,6 +366,11 @@ footer a:focus::after {
   line-height: var(--line-height);
   height: calc(3 * var(--line-height));
   text-align: justify;
+}
+
+.trending .templates {
+  gap: .5rem;
+  align-content: start;
 }
 
 .trending-template {
